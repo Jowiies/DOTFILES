@@ -7,7 +7,7 @@ import = [
 TERM = "xterm-256color"
 
 [window]
-opacity = 0.95
+opacity = 0.85
 decorations = "full"
 startup_mode = "Windowed"
 
@@ -19,18 +19,18 @@ startup_mode = "Windowed"
 style = "Beam"
 
 [font]
-size = 14
+size = 13
 
   [font.normal]
-  family = "JetBrainsMono Nerd Font"
+  family = "MesloLGS NF"
   style = "Regular"
 
   [font.bold]
-  family = "JetBrainsMono Nerd Font"
+  family = "MesloLGS NF"
   style = "Bold"
 
   [font.italic]
-  family = "JetBrainsMono Nerd Font"
+  family = "MesloLGS NF"
   style = "Italic"
 
 [mouse]
