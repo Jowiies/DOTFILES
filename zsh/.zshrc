@@ -19,7 +19,11 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
 
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
