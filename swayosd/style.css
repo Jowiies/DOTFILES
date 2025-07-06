@@ -1,0 +1,65 @@
+* {
+    all: unset;
+}
+
+window#osd {
+    border-radius: 16px;
+    background-color: rgba(15, 15, 15, 0.8);
+    border: none;
+}
+
+#container {
+    margin: 16px;
+}
+
+image,
+label {
+    color: white;
+}
+
+progressbar:disabled,
+image:disabled {
+    opacity: 0.5;
+}
+
+/* Progress bar styling */
+progressbar {
+    min-height: 6px;
+    border-radius: 999px;
+    background: transparent;
+    border: none;
+}
+
+progressbar trough {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+progressbar progress {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background-color: #C00000;  /* Bright blue - change to your preferred color */
+}
+
+/* Level bar styling (for volume/brightness) */
+levelbar {
+    min-height: 6px;
+    min-width: 200px;
+    background-color: transparent;
+}
+
+levelbar block {
+    min-height: inherit;
+    border-radius: 999px;
+}
+
+levelbar block.filled {
+    background-color: #4e9af1;  /* Should match progress color */
+}
+
+levelbar block.empty {
+    background-color: rgba(255, 255, 255, 0.3);
+}

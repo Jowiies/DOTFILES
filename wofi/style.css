@@ -1,0 +1,64 @@
+/* Base window styling */
+window {
+    margin: 0px;
+    border: none;
+    background-color: rgba(32, 32, 32, 0.9);
+    border-radius: 16px;
+}
+
+/* Search input box */
+#input {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 16px;
+    color: #ffffff;
+    background-color: rgba(51, 51, 51, 0.9);
+    font-size: 16px;
+    outline: none;
+}
+
+#input:focus {
+    box-shadow: 0 0 0 2px rgba(192,0,0, 0.9);
+}
+/* Inner content area */
+#inner-box {
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Entries (apps/options) */
+#entry {
+    padding: 8px;
+    border-radius: 16px;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+expander > list {
+    background-color: rgba(32, 32, 32, 0.9);
+}
+
+#entry:selected {
+    background-color: rgba(192,0,0, 0.9);
+    color: #ffffff;
+    border-radius: 16px;
+}
+
+/* Text styling */
+#text {
+    margin: 5px;
+    color: #ffffff;
+}
+
+/* Scrollbar (optional) */
+#scroll {
+    margin: 0px;
+    border: none;
+}
+scrollbar {
+    border: none;
+    background-color: transparent
+}
+

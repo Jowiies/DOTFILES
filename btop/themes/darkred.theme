@@ -1,0 +1,25 @@
+# btop custom theme - Dark Red and Grayscale
+# Base: grayscale background (#222222), accent color #C00000
+
+theme[main_bg]="#222222"
+theme[main_fg]="#ffffff"
+
+theme[title]="#C00000"
+theme[hi_fg]="#C00000"
+theme[selected_fg]="#ffffff"
+theme[selected_bg]="#C00000"
+
+theme[inactive_fg]="#888888"
+theme[graph_text]="#C00000"
+theme[meter_bg]="#333333"
+theme[proc_misc]="#999999"
+theme[cpu_box]="#C00000"
+theme[mem_box]="#C00000"
+theme[net_box]="#C00000"
+theme[proc_box]="#C00000"
+theme[div_line]="#444444"
+
+theme[proc_good]="#44ff44"
+theme[proc_warn]="#ffaa00"
+theme[proc_crit]="#ff4444"
+
