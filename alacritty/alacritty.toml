@@ -7,10 +7,7 @@
 TERM = "xterm-256color"
 
 [window]
-opacity = 0.85
-decorations = "full"
-startup_mode = "Windowed"
-dimensions = { columns = 91, lines = 25 }
+opacity = 0.9
 
   [window.padding]
   x = 5

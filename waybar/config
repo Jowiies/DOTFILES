@@ -30,11 +30,12 @@
     "modules-right": [
         "network",
         "battery",
-        "cpu",
-        "memory",
-        "temperature",
-        "custom/brightness",
+        //"cpu",
+        //"memory",
+        //"temperature",
+        "backlight",
         "pulseaudio",
+        "custom/wlogout",
     ],
 
 
@@ -180,12 +181,20 @@
         "icon-size": 21,
         "spacing": 10
     },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {percent}%",
+    },
     "custom/brightness": {
-      "exec": "~/.config/waybar/scripts/brightness.sh",
-      "interval": 5,
-      "format": "{}"
+        "exec": "~/.config/waybar/scripts/brightness.sh",
+        "interval": 5,
+        "format": "{}"
+    },
+
+    "custom/wlogout": {
+        "format": "",  // Power symbol icon
+        "on-click": "wlogout --protocol layer-shell",
+        "tooltip": false
     }
-
-
-
 }

@@ -1,0 +1,51 @@
+/* ThinkPad Red Theme - 6 Buttons */
+window {
+    background-color: rgba(10, 10, 10, 0.85);
+    font-family: "Cantarell", sans-serif;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+button {
+    color: white;
+    background-color: rgba(34, 34, 34, 0.9);
+    border: 0px;
+    border-radius: 0px;
+    margin: 10px;
+    min-width: 100px;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    border: 3px solid #e60012;
+    background-color: rgba(20, 20, 20, 0.9); /* Maintain background */
+}
+
+#lock {
+    background-image: url("icons/lock.png");
+}
+
+#logout {
+    background-image: url("icons/logout.png");
+}
+
+#suspend {
+    background-image: url("icons/suspend.png");
+}
+
+#hibernate {
+    background-image: url("icons/hibernate.png");
+}
+
+#shutdown {
+    background-image: url("icons/shutdown.png");
+}
+
+#reboot {
+    background-image: url("icons/reboot.png");
+}

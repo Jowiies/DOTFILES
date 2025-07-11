@@ -48,9 +48,10 @@
 
 /* The whole bar */
 #waybar {
-    background: #222222;
+    background: rgba(34,34,34,0.9);
     color: white;
     font-family: Cantarell, Font Awesome, Noto Sans, sans-serif;    
+    font-weight: bold;
     font-size: 14px;
 }
 
@@ -62,7 +63,9 @@
 #memory,
 #mode,
 #network,
+#backlight,
 #pulseaudio,
+#custom-wlogout,
 #temperature,
 #tray {
     padding-left: 10px;
@@ -183,9 +186,9 @@
 }
 
 #workspaces button.focused {
-    border-color: #e00000;
-    color: #e00000;
-    background-color: #444444;
+    border-color: transparent;
+    color: white;
+    background-color: #E60012;
 }
 
 #workspaces button.urgent {

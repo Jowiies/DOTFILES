@@ -3,8 +3,8 @@
 }
 
 window#osd {
-    border-radius: 16px;
-    background-color: rgba(15, 15, 15, 0.8);
+    border-radius: 8px;
+    background-color: rgba(34, 34, 34, 0.8);
     border: none;
 }
 
@@ -41,7 +41,7 @@ progressbar progress {
     min-height: inherit;
     border-radius: inherit;
     border: none;
-    background-color: #C00000;  /* Bright blue - change to your preferred color */
+    background-color: #e60012;  /* Bright blue - change to your preferred color */
 }
 
 /* Level bar styling (for volume/brightness) */
