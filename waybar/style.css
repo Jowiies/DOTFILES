@@ -48,7 +48,7 @@
 
 /* The whole bar */
 #waybar {
-    background: rgba(34,34,34,0.9);
+    background: rgba(10,10,10,0.85);
     color: white;
     font-family: Cantarell, Font Awesome, Noto Sans, sans-serif;    
     font-weight: bold;
@@ -65,6 +65,7 @@
 #network,
 #backlight,
 #pulseaudio,
+#bluetooth,
 #custom-wlogout,
 #temperature,
 #tray {
@@ -188,7 +189,7 @@
 #workspaces button.focused {
     border-color: transparent;
     color: white;
-    background-color: #E60012;
+    background-color: #e1251b;
 }
 
 #workspaces button.urgent {

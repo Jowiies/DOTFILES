@@ -35,6 +35,7 @@
         //"temperature",
         "backlight",
         "pulseaudio",
+        "bluetooth",
         "custom/wlogout",
     ],
 
@@ -108,7 +109,8 @@
         "format-wifi": "  {essid}", // Icon: wifi
         "format-ethernet": "  {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "~/dev/wifimenu/wifimenu"
     },
 
     "sway/mode": {
@@ -146,7 +148,7 @@
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
@@ -157,7 +159,7 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click" : "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click" : "pavucontrol",
         "on-scroll-down" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1",
         "on-scroll-up" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
         "tooltip": false,
@@ -190,6 +192,11 @@
         "exec": "~/.config/waybar/scripts/brightness.sh",
         "interval": 5,
         "format": "{}"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "on-click": "blueman-manager"
     },
 
     "custom/wlogout": {

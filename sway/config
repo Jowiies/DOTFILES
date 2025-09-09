@@ -7,7 +7,7 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod4 
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -73,7 +73,7 @@ exec_always swayidle -w \
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -217,6 +217,7 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
     bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower 
+
     # Special key to take a screenshot with grim
     bindsym Print exec ~/.config/sway/scripts/screenshot.sh
 
@@ -244,13 +245,15 @@ exec_always --no-startup-id swayosd-server
 
 include /etc/sway/config.d/*
 
-output * bg /home/joel/Pictures/photorealistic-galaxy-background.jpg fill
+output * bg /home/joel/Pictures/red-dark-forest.jpg fill
+#output * bg /home/joel/Pictures/red-forest-4.jpg fill
+
 
 bar {
     swaybar_command waybar
 }
 
-client.focused          #e60012 #e60012 #FFFFFF #e60012
+client.focused          #e1251b #e1251b #FFFFFF #e1251b
 default_border pixel
 default_floating_border pixel
 hide_edge_borders smart
@@ -259,11 +262,44 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
+# Blueman-manager (floating, top-right)
+for_window [app_id="blueman-manager"] {
+    floating enable
+    move position 75% 0%
+    resize set width 30% height 40%
+}
+
+# Pavucontrol (floating, top-right)
+for_window [app_id="org.pulseaudio.pavucontrol"] {
+    floating enable
+    move position 75% 0%
+    resize set width 30% height 40%
+}
+
+for_window [app_id="nwg-displays"] {
+    floating enable
+    move position 75% 0%
+    resize set width 30% height 40%
+}
+
 input "10182:480:GXTP5100:00_27C6:01E0_Touchpad" {
     tap enabled
     natural_scroll enabled
     dwt enabled
 }
+
+bindsym XF86Display exec nwg-displays
+
+
+# Docked setup
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+
+# Undocked setup
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+
+exec mako
 
 input type:keyboard {
     xkb_layout us
