@@ -1,11 +1,20 @@
 #!/bin/bash
+BRIGHTNESS_FILE="/sys/class/backlight/intel_backlight/brightness"
+MAX_FILE="/sys/class/backlight/intel_backlight/max_brightness"
 
-BACKLIGHT_DIR="/sys/class/backlight/intel_backlight"  # adjust this path if needed
+print_brightness() {
+    level=$(cat "$BRIGHTNESS_FILE")
+    max=$(cat "$MAX_FILE")
+    percent=$((100 * level / max))
 
-max_brightness=$(cat "$BACKLIGHT_DIR/max_brightness")
-current_brightness=$(cat "$BACKLIGHT_DIR/brightness")
+    echo " $percent%"
+}
 
-percent=$(( 100 * current_brightness / max_brightness ))
+# Print once at start
+print_brightness
 
-echo "  ${percent}%"
+# Watch for brightness changes and update instantly
+while inotifywait -q -e modify "$BRIGHTNESS_FILE"; do
+    print_brightness
+done
 

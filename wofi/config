@@ -2,5 +2,5 @@ width=400
 height=500
 location=center
 show=drun
-prompt=  # Font Awesome search icon (optional)
+prompt=  
 allow_images=true

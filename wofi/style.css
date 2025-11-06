@@ -3,7 +3,7 @@ window {
     font-family: Cantarell, sans-serif;
     margin: 0px;
     border: none;
-    background-color: rgba(32, 32, 32, 0.9);
+    background-color: rgba(15, 15, 15, 0.9);
     border-radius: 0px;
 }
 
@@ -14,13 +14,13 @@ window {
     border: none;
     border-radius: 0px;
     color: #ffffff;
-    background-color: rgba(51, 51, 51, 0.9);
+    background-color: rgba(32, 32, 32, 0.9);
     font-size: 16px;
     outline: none;
 }
 
 #input:focus {
-    box-shadow: 0 0 0 2px rgba(230,0,18, 0.9);
+    box-shadow: 0 0 0 2px rgba(225,37,27, 0.9);
 }
 /* Inner content area */
 #inner-box {
@@ -38,11 +38,11 @@ window {
 }
 
 expander > list {
-    background-color: rgba(32, 32, 32, 0.9);
+    background-color: rgba(15, 15, 15, 0.9);
 }
 
 #entry:selected {
-    background-color: rgba(230,0,18, 0.9);
+    background-color: rgba(225,37,27, 0.9);
     color: #ffffff;
     border-radius: 0px;
 }

@@ -1,21 +1,45 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      local esp32 = require("esp32")
+      opts.servers = opts.servers or {}
+      opts.servers.clangd = esp32.lsp_config()
+      return opts
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
     config = function()
-        local lspconfig = require("lspconfig")
-       
-        -- Python LSP
-        lspconfig.pyright.setup({})
+      -- Python LSP
+      vim.lsp.config("pyright", {})
 
-        -- LSP server config
-        lspconfig.clangd.setup({
-            cmd = { "clangd","--background-index", "--clang-tidy"}
-        })
+      -- Golang LSP
+      vim.lsp.config("gopls", {
+          settings = {
+              gopls = {
+                  gofumpt = true,
+                  staticcheck = true,
+              },
+          },
+      })
 
-        -- Diagnostic configuration
-        -- Floating window
-        vim.o.updatetime = 250
-        vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]]
+      -- Clangd LSP
+      vim.lsp.config("clangd", {
+        cmd = { "clangd", "--background-index", "--clang-tidy" }
+      })
+      vim.lsp.enable({"pyright", "clangd", "gopls" })
+
+      vim.api.nvim_create_autocmd("BufWritePre", {
+          callback = function()
+              vim.lsp.buf.format({ async = false })
+          end,
+      })
+      -- Diagnostic configuration
+      vim.o.updatetime = 250
+      vim.cmd [[
+        autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
+      ]]
     end,
   }
 }

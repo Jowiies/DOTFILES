@@ -23,7 +23,7 @@
         "sway/mode"
     ],
     "modules-center": [
-        //"sway/window"
+        //"sway/window",
         "clock#date",
         "clock#time",
     ],
@@ -34,6 +34,7 @@
         //"memory",
         //"temperature",
         "backlight",
+        //"custom/brightness",
         "pulseaudio",
         "bluetooth",
         "custom/wlogout",
@@ -45,7 +46,7 @@
     // -------------------------------------------------------------------------
 
     "battery": {
-        "interval": 10,
+        "interval": 30,
         "states": {
             "warning": 30,
             "critical": 15
@@ -65,15 +66,16 @@
     },
 
     "clock#time": {
-        "interval": 10,
+        "interval": 60,
         "format": " {:%H:%M}",
         "tooltip": false
     },
 
     "clock#date": {
-      "interval": 10,
+      "interval": 120,
       "format": "  {:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
+      "tooltip-format": "{:%e %B %Y}",
+      "on-click": "LC_TIME=es_ES.UTF-8 gnome-calendar"
     },
 
     "cpu": {
@@ -105,12 +107,12 @@
     },
 
     "network": {
-        "interval": 5,
+        "interval": 30,
         "format-wifi": "  {essid}", // Icon: wifi
         "format-ethernet": "  {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "~/dev/wifimenu/wifimenu"
+        "on-click": "alacritty --class nmtui -e nmtui" //"~/dev/wifimenu/wifimenu"
     },
 
     "sway/mode": {
@@ -140,7 +142,7 @@
     },
     "custom/volume": {
         "exec": "~/.config/waybar/scripts/volume-wpctl.sh",
-        "interval": 1,
+        "interval": 0,
         "format": "{}",
         "on-click": "swayosd-client --output-volume --toggle-mute"
     },
@@ -189,9 +191,10 @@
         "format": " {percent}%",
     },
     "custom/brightness": {
-        "exec": "~/.config/waybar/scripts/brightness.sh",
-        "interval": 5,
-        "format": "{}"
+        "exec": "stdbuf -oL ~/.config/waybar/scripts/brightness.sh",
+        "interval": 0,
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%-"
     },
 
     "bluetooth": {

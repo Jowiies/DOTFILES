@@ -7,7 +7,7 @@
 {
     "label": "logout",
     "action": "swaymsg exit",
-    "text": "LogOut",
+    "text": "Log Out",
     "keybind": "e"
 }
 {
@@ -31,6 +31,6 @@
 {
     "label": "shutdown",
     "action": "systemctl poweroff",
-    "text": "ShutDown",
+    "text": "Shut Down",
     "keybind": "s"
 }

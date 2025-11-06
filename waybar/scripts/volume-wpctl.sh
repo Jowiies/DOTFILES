@@ -1,19 +1,24 @@
 #!/bin/bash
+print_volume() {
+    read -r volume muted <<< $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2, $3}')
+    vol_percent=$(awk -v vol="$volume" 'BEGIN { printf "%d", (vol > 1 ? 100 : vol * 100) }')
 
-# Get volume and mute status from PipeWire
-read -r volume muted <<< $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2, $3}')
+    if [ "$muted" = "[MUTED]" ]; then
+        icon=""
+    elif (( vol_percent <= 30 )); then
+        icon=""
+    else
+        icon=""
+    fi
 
-# Convert volume (0.0–1.5) to percent
-vol_percent=$(awk -v vol="$volume" 'BEGIN { printf "%d", (vol > 1 ? 100 : vol * 100) }')
+    echo "$icon $vol_percent%"
+}
 
-# Set icon
-if [ "$muted" = "[MUTED]" ]; then
-    icon=""
-elif (( vol_percent <= 30 )); then
-    icon=""
-else
-    icon=""
-fi
+# Print once at startup
+print_volume
 
-echo "$icon $vol_percent%"
+# Then update whenever PipeWire emits an event
+wpctl subscribe | grep --line-buffered "change" | while read -r _; do
+    print_volume
+done
 
